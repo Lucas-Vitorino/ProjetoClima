@@ -1,8 +1,8 @@
 // server/server.js
-
+require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
-require('dotenv').config();
+
 const cors = require('cors');
 
 const app = express();
@@ -16,6 +16,7 @@ app.get('/weather', async (req, res) => {
 
   const city = req.query.city;
   const apiKey = process.env.API_KEY;
+  console.log('API_KEY:', apiKey);
 
   if (!city) {
     return res.status(400).json({ error: 'Parâmetro "city" é obrigatório.' });
