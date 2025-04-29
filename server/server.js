@@ -13,6 +13,7 @@ app.use(cors());
 
 // Criar a rota /weather
 app.get('/weather', async (req, res) => {
+
   const city = req.query.city;
   const apiKey = process.env.API_KEY;
 
@@ -38,6 +39,8 @@ app.get('/weather', async (req, res) => {
     console.error('Erro ao buscar dados do clima:', error);
     res.status(500).json({ error: 'Erro interno no servidor' });
   }
+  console.log('API_KEY:', process.env.API_KEY);
+
 });
 
 // Iniciar o servidor
